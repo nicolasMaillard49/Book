@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Details du livre{% endblock%}
+
+{% block body %}
+    {% for message in app.flashes('succes') %}
+        <div class="alert alert-success text-center">
+            {{ message }}
+        </div>
+    {% endfor %}
+  <div class="row text-center mt-7">
+        <h2>Liste des idees</h2>
+    </div>
+    <div class="row">
+        <div class="row text-center mt-5">
+            <h2>{{ book.titre }}</h2>
+            <small>{{ book.author }}</small>
+        </div>
+        <div class="row mt-4">
+            <p>
+                {{ book.resume }}
+            </p>
+            <small> {{ book.dateCreated|date("d/m/Y") }} </small>
+        </div>
+       <
+    </div>
+    <div class="row mt-5" >
+        <h4>Ajouter un commentaire</h4>
+        <div class="row mt-4">
+            <div class="col-6 offset-3">
+                {{form(commentForm)}}
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5" >
+        <ul>
+            {% if book.comments != null %}
+            {% for comment in book.comments %}
+                <li> {{comment.content}} - {{comment.dateCreated|date("d-m-Y")}} </li>
+            {% endfor %}
+            {% else %}
+            <li>Ajoutez un commentaire en haut</li>
+            {% endif %}
+        </ul>
+    </div>
+{% endblock %}

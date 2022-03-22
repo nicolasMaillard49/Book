@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un livre{% endblock%}
+
+
+{% block body%}
+
+        <div class="row text-center">
+
+            <h2>Ajouter un livre</h2>
+        </div>
+    <div class="row col-4">
+
+    </div>
+        <div class="row col-3 form-group">
+            {{ form_start(formBook) }}
+
+            {{ form_widget(formBook) }}
+
+            {{ form_end(formBook) }}
+        </div>
+    <div class="row col-4">
+
+    </div>
+
+
+{% endblock%}

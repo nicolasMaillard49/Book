@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste livre{% endblock%}
+
+{% block body %}
+    <div class="row text-center-ml12">
+
+    </div>
+    <div class="row text-center">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Titre</th>
+                <th scope="col">Auteur</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for booke in books %}
+                <tr>
+                    <td><a href="{{path('app_details',{id:booke.id})}}">{{booke.titre}}</a></td>
+                    <td>{{ booke.author }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
